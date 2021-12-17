@@ -43,7 +43,7 @@ func parttwo(lines []int) {
 	fmt.Printf("parttwo: %d\n", asc)
 }
 
-func main() {
+func getLines() []int {
 	file, err := os.Open("input.txt")
 	check(err)
 	scanner := bufio.NewScanner(file)
@@ -55,6 +55,11 @@ func main() {
 		lines = append(lines, val)
 	}
 	file.Close()
+	return lines
+}
+
+func main() {
+	lines := getLines()
 	partone(lines)
 	parttwo(lines)
 }
