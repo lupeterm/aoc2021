@@ -15,8 +15,8 @@ func check(e error) {
 }
 
 func parttwo(most string, least string, lines []string) {
-	oxygen := get_oxy(lines, 0)
-	scrubber := get_scr(lines, 0)
+	oxygen := getOxy(lines, 0)
+	scrubber := getScr(lines, 0)
 	fmt.Println(oxygen)
 	fmt.Println(scrubber)
 
@@ -28,7 +28,7 @@ func parttwo(most string, least string, lines []string) {
 	fmt.Printf("parttwo: %d", ox*scr)
 }
 
-func get_oxy(lines []string, index int) string {
+func getOxy(lines []string, index int) string {
 	var ones, zeros []string
 	if len(lines) == 1 {
 		return lines[0]
@@ -41,12 +41,12 @@ func get_oxy(lines []string, index int) string {
 		}
 	}
 	if len(ones) >= len(zeros) {
-		return get_oxy(ones, index+1)
+		return getOxy(ones, index+1)
 	}
-	return get_oxy(zeros, index+1)
+	return getOxy(zeros, index+1)
 }
 
-func get_scr(lines []string, index int) string {
+func getScr(lines []string, index int) string {
 	var ones, zeros []string
 	if len(lines) == 1 {
 		return lines[0]
@@ -59,9 +59,9 @@ func get_scr(lines []string, index int) string {
 		}
 	}
 	if len(zeros) <= len(ones) {
-		return get_scr(zeros, index+1)
+		return getScr(zeros, index+1)
 	}
-	return get_scr(ones, index+1)
+	return getScr(ones, index+1)
 }
 
 func partone(lines []string) (string, string) {
